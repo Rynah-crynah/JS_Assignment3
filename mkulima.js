@@ -43,25 +43,25 @@
           console.log(this.farms.find(object=>object.farmId===id))
       }
       this.addProduct= function(productId,name,price){
-          this.farms.push({productId,name,price})
+          this.products.push({productId,name,price})
     }
     this.removeProduct=function(id){
        let productIndex= this.products.findIndex(item=>item.productId===id)
        this.farms.splice(productIndex,1)
     }
-    this.updateProduct=function(oldId,newId, newName, newPrice){
+    this.updateProduct=function(oldId,newId, newProductName, newPrice){
             let product= this.products.find(item=>item.productId===oldId)
-            product.farmId=newId
-            product.name=newName
-            product.farmer=newPrice
+            product.productId=newId
+            product.name=newProductName
+            product.price=newPrice
     }
-    this.getProductb=function(id){
+    this.getProduct=function(id){
       console.log(this.products.find(product=>product.farmId===id))
      }
   
   
     this.printProducts=function(){
-      console.log(this.products)
+      console.log(this.product)
      }
      this.calculateOrderCost=function(id,quantity){
       let product= this.products.find(item=>item.productId===id)
@@ -73,16 +73,25 @@
   }
   }
   
-  let MkulimaPlatform= new Mkulima()
-  MkulimaPlatform.addFarm("89","Maize farm","Ntinyari","0767895433","Meru,Muthara")
-  MkulimaPlatform.addFarm("376","Coffee farm","Cheru","0780986754","Tigoni, Limuru")
+  let mkulimaPlatform= new Mkulima()
+  mkulimaPlatform.addFarm("B13J2HA","Maize farm","Ntinyari","0767895433","Meru,Muthara");
+  mkulimaPlatform.addFarm("F34L20HA","Coffee farm","Cheru","0780986754","Tigoni, Limuru");
   
   
-  MkulimaPlatform.updateFarm("89","240","Millet farm", "Nina","0789765412","Nyahururu, Swera")
+  mkulimaPlatform.updateFarm("B13J2HA","P26N30HA","Millet farm", "Nina","0789765412","Nyahururu, Swera");
   
-  console.log(MkulimaPlatform.farms)
+  console.log(mkulimaPlatform.farms);
   
-  MkulimaPlatform.getFarm("240")
+  mkulimaPlatform.getFarm("P26N30HA");
+
+  mkulimaPlatform.addProduct("67wm","Sorghum", 3400);
+  console.log(mkulimaPlatform.products);
+
+  mkulimaPlatform.updateProduct("67wm","89k","Wheat",5500);
+  console.log(mkulimaPlatform.products);
+
+  mkulimaPlatform.removeFarm("P26N30HA");
+  console.log(mkulimaPlatform.farms);
 
   
   
